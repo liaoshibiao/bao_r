@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes">
+		<link rel="stylesheet" href="css/reset.css">
+		<!--<link rel="stylesheet" href="css/css/style.css">-->
+		<link rel="stylesheet" href="css/mains.css">
+		<link rel="stylesheet" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/caxun.css" />
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.picker.all.js" ></script>
+		<script src="js/Adaptation.js"></script>
+
+		<title>跨店零售</title>
+	</head>
+	<style>
+	 
+		table,
+		table tr th,
+		table .AA {
+			/*border-left: 1px solid #ccc;*/
+			text-align: center;
+		}
+		.oo{
+			/*border-bottom: 1px solid #ccc;*/
+            border-top: 1px solid #ccc;
+		}
+		table {
+			width: 90%;
+			min-height: 25px;
+			line-height: 25px;
+			text-align: center;
+			border-collapse: collapse;
+			margin: 0 auto;
+			font-size: 0.3rem;
+		}
+		table tr td:nth-child(1){
+			border-left: 1px solid #ccc;
+		}
+		table tr th:nth-child(1){
+			border-left: 1px solid #ccc;
+		}
+		#area_rist tbody tr td:nth-child(1){
+			width: 160px;
+		}
+		#area_rist tbody tr th:nth-child(1){
+			width: 160px;
+		}
+		#area_rist tbody tr{
+			 overflow-y: auto;
+		}
+		#cehua{
+			width:100%;
+			background:white;
+			position: absolute;
+			top: 0;right:0;
+			z-index:999;
+			opacity:1;
+			display: none;
+			
+		}
+		#brand,#store{
+			margin: 11px -30px -11px;
+		}
+		.pinpai {
+		    width: 30.5%;
+		    height: 50px;
+		    float: left;
+		    margin: 1% 0%;
+		    text-align: center;
+		    line-height: 50px;
+		    margin-left: 8px;
+		    background: #f2f3f5;
+		    color: #596278;
+		    font-size: .4rem;
+		}
+		.mypinpai{
+			background: url(images/duigou.png)no-repeat 0px 0px;
+		    background-size: 22%;
+		    background-color:#e5fafa;
+		}
+		.jibie{
+			width:100%;height:30px;font-size:.5rem;padding-left:15px;
+		}
+		.jibieda{
+			width: 100%;
+		}
+		.jibieda-top{
+			width:100%;height:30px;font-size:.5rem;padding-left: 15px;
+		}
+		.mui-table-view-cell.mui-collapse .mui-collapse-content{
+			margin: 11px -30px -11px;
+		}
+		#area_rist tr td{
+			    float: left;
+			    overflow: hidden;
+			    zoom: 1;
+			    width: 85px;
+			    height: 38px;
+		}
+		#area_rist tr th{
+			    float: left;
+			    overflow: hidden;
+			    zoom: 1;
+			    width: 85px;
+		}
+		.cz{
+		width:50%;
+		height: 50px;
+		text-align: center;
+	    line-height: 50px;
+	    font-size: .6rem;
+	    color: #fff;
+	    float: left;
+	    background:#8493af ;
+	}
+	.wc{
+		width:50%;
+		height: 50px;
+		text-align: center;
+	    line-height: 50px;
+	    font-size: .6rem;
+	    color: #fff;
+	    float: left;
+		background:#5f6f8d;
+	}
+	#div1{
+		background-size:100% !important;
+		
+	}
+         .all ul li:nth-child(3n-1){
+	border-right: 1px solid #e6e6e6;
+		border-left: 1px solid #e6e6e6;
+}
+  .all ul li{
+	border-bottom: 1px solid #e6e6e6;
+}
+	.all ul li:nth-last-child(2){
+	border-bottom:none
+	}
+	.all ul li:nth-last-child(1){
+	border-bottom:none
+	}
+	.all li .one,
+	.all li .two {
+	  font-size: .4rem;
+	}
+	
+	.all .heeed {
+	  margin-bottom: .3rem;
+	}
+	.index .index-content p.heeed .text-left{
+	  color: #393f4d;
+	  font-size: .4rem;
+	}
+	.all ul{
+	    margin: 20px -0.15rem;
+	}
+	.two{
+	  color: #596278;
+	}
+	.index{
+	 background: none;
+	}
+	#wst canvas{
+	 width: 90% !important;
+	 height: 250px !important;
+	}
+	
+	.index .index-content {
+	    padding: 0 .3rem;
+	    margin-top: .4rem;
+	    border-radius: 5px;
+	}
+	</style>
+
+	<body class="index sale">
+		<div id="cehua">
+			 <ul class="mui-table-view"> 
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">店铺品牌</a>
+		            <div class="mui-collapse-content" id="brand">
+	
+		            </div>
+		        </li>
+		    </ul>
+		     <ul class="mui-table-view"> 
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">店铺级别</a>
+		            <div class="mui-collapse-content" id="store">
+	
+		            </div>
+		        </li>
+		    </ul>
+		     <ul class="mui-table-view"> 
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">管辖区域</a>
+		            <div class="mui-collapse-content">
+		            	<div class="jibieda">
+		            		<div class="jibieda-top" style="    font-size: .4rem;">一级</div>
+		            		<div id="managementup">
+		            		</div>
+		            	</div>
+		            	
+		            </div>
+		            <div class="mui-collapse-content">
+		            	<div class="jibieda">
+		            		<div class="jibieda-top"style="    font-size: .4rem;display: none;">二级</div>
+		            		<div id="managementmiddle">
+		            		</div>
+		            	</div>
+		            	
+
+		        </li>
+		    </ul>
+		     <ul style="height: 50px;width: 100%;"></ul>
+		     <div style="position: fixed;bottom: 0px;width: 100%;">
+		     	<div class="cz">
+		     		重置
+		     	</div>
+		     	<div class="wc">
+		     		完成
+		     	</div>
+		     </div>
+		</div>
+		<div class="top">
+			<ul class="f-cb" id="nav">
+				<li data-id="1" class="nav-d">昨日</li>
+				<li data-id="2" class="nav-d">上周</li>
+				<li data-id="3" class="nav-d">本周</li>
+				<li data-id="4" class="nav-d">上月</li>
+				<li data-id="5" class="active nav-d">本月</li>
+				<li data-id="6" class="nav-d">本年至今</li>
+			</ul>
+		</div>
+		<div id="CH"">
+			<div id="div1"style="background:url(images/qian.png)no-repeat;width:13%;height:50px;background-size:100%;position: absolute;z-index: 99999;top: 43px;"></div>
+		</div>
+		<div class="index-content f-cb" style="padding: 0px;">
+		    <div class="map-y f-cb">
+		        <p class="title" id="Sal_amt" style="width: 100%;height: 200px;position: relative;z-index: 99;">
+		         9,443,653
+		         <div id="di_tu" style="width: 100%;height: 200px;position: absolute;top:60px"></div>
+		        </p>
+		        <div style="margin-top: 10px;text-align: right;padding-right: 10px;color: #596278;">20171201&nbsp;--&nbsp;20171229</div>
+		        <div class="map-left">
+		            <div id="main"></div>
+		            <p>达成率</p>
+		        </div>
+		        <div class="map-right">
+		            <div id="main1"></div>
+		            <p>同比增长</p>
+		        </div>
+		    </div>
+		</div>
+		<div class="index-content f-cb">
+		    <p class="heeed f-cb">
+		        <span class="text-left">销售走势和同期对比&nbsp;（金额：万）</span>
+		    </p>
+		
+		    <div class="map-y f-cb" style="padding-top: .3rem">
+		        <div id="map"></div>
+		    </div>
+		</div>
+		<div class="index-content f-cb">
+		    <p class="heeed f-cb">
+		        <span class="text-left">区域销售</span>
+		    </p>
+		
+		    <div id="wst"style="width: 353px;height:270px;">
+		    </div>
+		</div>
+		<div class="index-content f-cb"style="background: #efefef;margin: 0 .3rem;    margin-bottom: 10px;">
+		  <div class="all">
+		    <p class="heeed f-cb">
+		      <span class="text-left">门店指标</span>
+		      <span class="text-right"></span>
+		    </p>
+		    <ul class="f-cb" id="total_type">
+		      <li data-id="1">
+		        <div class='container'>
+		          <p class="one" id="sal_amt">0</p>
+		          <p class="two">总店数</p>
+		        </div>
+		      </li>
+		      <li data-id="2">
+		        <div class='container'>
+		          <p class="one" id="sal_qty">0</p>
+		          <p class="two">新开店</p>
+		        </div>
+		      </li>
+		      <li data-id="3">
+		        <div class='container'>
+		          <p class="one" id="dc_v">0%</p>
+		          <p class="two">关闭店</p>
+		        </div>
+		      </li>
+		      <li data-id="4">
+		        <div class='container'>
+		          <p class="one" id="dis_v">0%</p>
+		          <p class="two">店效</p>
+		        </div>
+		      </li>
+		      <li data-id="5">
+		        <div class='container'>
+		          <p class="one" id="org_avg">0</p>
+		          <p class="two">完成目标店</p>
+		        </div>
+		      </li>
+		      <li data-id="6" id="mb_q">
+		      <a>
+		        <div class='container'>
+		          <p class="one" id="org_qty" style="color: #e062ae;">0</p>
+		          <p class="two">未完成目标</p>
+		        </div>
+		       </a>
+		      </li>
+		      <li data-id="7">
+		        <div class='container'>
+		          <p class="one" id="nos_sal_amt">0.0</p>
+		          <p class="two">坪效</p>
+		        </div>
+		      </li>
+		      <li data-id="8">
+		        <div class='container'>
+		          <p class="one" id="nos_sal_qty">0.0</p>
+		          <p class="two">同比上升店</p>
+		        </div>
+		      </li>
+		      <li data-id="8">
+		        <div class='container'>
+		          <p class="one" id="nos_sal_qty">0.0</p>
+		          <p class="two">同比上降店</p>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
+		<div class="index-content f-cb"style="background: #efefef;margin: 0 .3rem;    margin-bottom: 10px;">
+		  <div class="all">
+		    <p class="heeed f-cb">
+		      <span class="text-left">商品指标</span>
+		      <span class="text-right"></span>
+		    </p>
+		    <ul class="f-cb" id="total_type">
+		      <li data-id="1">
+		        <div class='container'>
+		          <p class="one" id="sal_amt">0</p>
+		          <p class="two">在售商品款数</p>
+		        </div>
+		      </li>
+		      <li data-id="2">
+		        <div class='container'>
+		          <p class="one" id="sal_qty">0</p>
+		          <p class="two">当季新品款</p>
+		        </div>
+		      </li>
+		      <li data-id="3"id="mb_w">
+		        <a>
+		        <div class='container'>
+		          <p class="one" id="dc_v"style="color: #e062ae;">0%</p>
+		          <p class="two">即将断货款</p>
+		        </div>
+		        </a>
+		      </li>
+		      <li data-id="4" style="border-bottom:none">
+		        <div class='container'>
+		          <p class="one" id="dis_v">0%</p>
+		          <p class="two">零售数量</p>
+		        </div>
+		      </li>
+		      <li data-id="5">
+		        <div class='container'>
+		          <p class="one" id="org_avg">0</p>
+		          <p class="two">平均折扣</p>
+		        </div>
+		      </li>
+		      <li data-id="6">
+		        <div class='container'>
+		          <p class="one" id="org_qty">0</p>
+		          <p class="two">新品折扣</p>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
+		<div class="index-content f-cb"style="background: #efefef;margin: 0 .3rem;    margin-bottom: 10px;">
+		  <div class="all">
+		    <p class="heeed f-cb">
+		      <span class="text-left">会员指标</span>
+		      <span class="text-right"></span>
+		    </p>
+		    <ul class="f-cb" id="total_type">
+		      <li data-id="1">
+		        <div class='container'>
+		          <p class="one" id="sal_amt">0</p>
+		          <p class="two">会员总数</p>
+		        </div>
+		      </li>
+		      <li data-id="2">
+		        <div class='container'>
+		          <p class="one" id="sal_qty">0</p>
+		          <p class="two">招募会员数</p>
+		        </div>
+		      </li>
+		      <li data-id="3"id="mb_e">
+		        <a>
+		        <div class='container'>
+		          <p class="one" id="dc_v"style="color: #e062ae;">0%</p>
+		          <p class="two">流失会员</p>
+		        </div>
+		        </a>
+		      </li>
+		      <li data-id="4"style="border-bottom:none">
+		        <div class='container'>
+		          <p class="one" id="dis_v">0%</p>
+		          <p class="two">会员复购率</p>
+		        </div>
+		      </li>
+		      <li data-id="5">
+		        <div class='container'>
+		          <p class="one" id="org_avg">0</p>
+		          <p class="two">会员连单率</p>
+		        </div>
+		      </li>
+		      <li data-id="6">
+		        <div class='container'>
+		          <p class="one" id="org_qty">0</p>
+		          <p class="two">会员客单量</p>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
+			<script type="text/javascript" src="js/echarts.mins.js"></script>
+			<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+			<script type="text/javascript" src="js/api.js"></script>
+	</body>
+
+</html>
+<script>
+	//头部导航
+	    var URL = "http://report.offline.qingger.com:8188/bi_yhj/REALLY/bi/report/cross_sal/query";
+	   	var mouth=5;
+	   	var mou=1;
+		var ctrr1=[];
+		var brightnessarray1=[];
+		var atrr1=[];
+	 $("#nav li").bind("click",function aa() {
+		data_id = $(this).attr("data-id");
+						$("#nav li").removeClass('active');
+						$("#nav li[data-id = '" + data_id + "']").addClass('active');
+					let index = $(this).index() + 1;
+					if(index==1){
+					mouth=1;
+						var list = []
+						 	var sum = "";
+					}
+					else if(index==2){ 
+					mouth=2
+					}
+					else if(index==3){ 
+					mouth=3
+					}
+					else if(index==4){ 
+					mouth=4
+					}
+					else if(index==5){ 
+					mouth=5
+					}
+					else if(index==6){ 
+					mouth=6
+					}
+					var params = {
+						"userId": '15975531236',
+						"va_months": mouth,
+						"local_send_flag":mou,
+						"areacode1": brightnessarray1,
+						"org_level_id": atrr1,
+						"org_brd_id": ctrr1
+					};
+		           first(params);
+				})
+	 	 function first(params){
+					console.log("调用first");
+					console.log("调用first参数mouth："+params.va_months+";mou:"+params.local_send_flag);
+					if(brightnessarray1.length==0){
+						console.log("调用first参数brightnessarray1为空");
+						params.areacode1='';
+					}else{
+						var bValue='';
+						for(var i=0;i<brightnessarray1.length;i++){
+							bValue=bValue+brightnessarray1[i]+",";
+						}
+						if(bValue!='')bValue=bValue.substring(0,bValue.length-1);
+						console.log('bValue:'+bValue);
+						params.areacode1=bValue;
+					}
+					if(atrr1.length==0){
+						params.org_level_id='';
+						console.log("调用first参数atrr1为空");
+					}else{
+						var atrr1Value='';
+						for(var i=0;i<atrr1.length;i++){
+							atrr1Value=atrr1Value+atrr1[i]+",";
+						}
+						if(atrr1Value!='')atrr1Value=atrr1Value.substring(0,atrr1Value.length-1);
+						console.log('atrr1Value:'+atrr1Value);
+						params.org_level_id=atrr1Value;
+					}
+					if(ctrr1.length==0){
+						params.org_brd_id='';
+						console.log("调用first参数ctrr1为空");
+					}else{
+						var ctrr1Value='';
+						for(var i=0;i<ctrr1.length;i++){
+							ctrr1Value=ctrr1Value+ctrr1[i]+",";
+						}
+						if(ctrr1Value!='')ctrr1Value=ctrr1Value.substring(0,ctrr1Value.length-1);
+						console.log('ctrr1Value:'+ctrr1Value);
+						params.org_brd_id=ctrr1Value;
+					}
+					console.log("调用first参数brightnessarray1："+brightnessarray1+";atrr1:"+params.org_level_id+";ctrr1:"+params.org_brd_id);
+					$.ajax({ 
+					url: URL,
+					type: 'POST',
+					data:params,
+					dataType: 'json',
+					success: function(obj){
+						
+						ditu_exc();
+						yx_left();
+						yx_right();
+						zxt_ro();
+						qyxs_ro();
+					}
+						});
+		 }
+	 	  var params = {
+						"userId": '15975531236',
+						"va_months": 5,
+						"local_send_flag": 1,
+						"areacode1": brightnessarray1,
+						"org_level_id": atrr1,
+						"org_brd_id": ctrr1
+					};
+      first(params);
+	 //侧滑
+	 $('#CH').click(function(){
+	$("#cehua").show(500)
+	$("#div1").hide()
+	 })
+	$('.wc').click(function(){//完成 触发2
+		$("#cehua").hide()
+		$("#div1").show()
+		console.log("完成按钮点击");
+	})
+	$('.cz').click(function(){
+			$("#managementmiddle .pinpai").removeClass('mypinpai');
+			$("#managementup .pinpai").removeClass('mypinpai');
+			$("#managementdown .pinpai").removeClass('mypinpai');
+            $("#store .pinpai").removeClass('mypinpai');
+			$("#brand .pinpai").removeClass('mypinpai');
+		})
+</script>
+<script src="js/yjkb/guanxiaqu.js"></script>
+<script src="js/yjkb/dianpupingpai.js"></script>
+<script src="js/yjkb/dianpujibie.js"></script>
+<script src="js/yjkb/yjkb.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script>
+	var div1 = document.querySelector('#div1');
+//限制最大宽高，不让滑块出去
+var maxW = document.body.clientWidth - div1.offsetWidth;
+var maxH =690;
+//手指触摸开始，记录div的初始位置
+div1.addEventListener('touchstart', function(e) {
+	 $(this).css("background","url(images/shen.png)no-repeat")
+ var ev = e || window.event;
+ var touch = ev.targetTouches[0];
+ oL = touch.clientX - div1.offsetLeft;
+ oT = touch.clientY - div1.offsetTop;
+});
+//触摸中的，位置记录
+div1.addEventListener('touchmove', function(e) {
+ var ev = e || window.event;
+ var touch = ev.targetTouches[0];
+ var oLeft = touch.clientX - oL;
+ var oTop = touch.clientY - oT;
+ if(oLeft < 0) {
+ oLeft = 0;
+ } else if(oLeft >= maxW) {
+ oLeft = maxW;
+ }
+ if(oTop < 0) {
+ oTop = 0;
+ } else if(oTop >= maxH) {
+ oTop = maxH;
+ }
+ div1.style.left = oLeft + 'px';
+ div1.style.top = oTop + 'px';
+});
+//触摸结束时的处理
+div1.addEventListener('touchend', function() {
+	$(this).css("background","url(images/qian.png)no-repeat")
+ document.removeEventListener("touchmove", defaultEvent);
+});
+//阻止默认事件
+function defaultEvent(e) {
+ e.preventDefault();
+}
+//地图
+function ditu_exc(){
+	var dom = document.getElementById("di_tu");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [
+     {name: '上海', value: 200},
+     {name: '潮州', value: 100},
+     {name: '宁波', value: 100},
+     {name: '苏州', value: 100},
+     {name: '无锡', value: 100},
+ 
+];
+var geoCoordMap = {
+	  '上海':[121.48,31.22],
+    '潮州':[116.63,23.68],
+    '宁波':[121.56,29.86],
+    '苏州':[120.62,31.32],
+    '无锡':[120.29,31.59],
+    
+};
+
+var convertData = function (data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var geoCoord = geoCoordMap[data[i].name];
+        if (geoCoord) {
+            res.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value)
+            });
+        }
+    }
+    return res;
+};
+
+option = {
+    tooltip : {
+        trigger: 'item'
+    },
+    bmap: {
+        center: [111.48, 31.22],
+        zoom: 5,
+        roam: true,
+        mapStyle: {
+            styleJson: [{
+                'featureType': 'water',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'land',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#f3f3f3'
+                }
+            }, {
+                'featureType': 'railway',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'highway',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#fdfdfd'
+                }
+            }, {
+                'featureType': 'highway',
+                'elementType': 'labels',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'geometry',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'geometry.fill',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'poi',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'green',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'subway',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'manmade',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'local',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'labels',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'boundary',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'building',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'label',
+                'elementType': 'labels.text.fill',
+                'stylers': {
+                    'color': '#999999'
+                }
+            }]
+        }
+    },
+    series : [
+        {
+            name: 'pm2.5',
+            type: 'scatter',
+            coordinateSystem: 'bmap',
+            data: convertData(data),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'purple'
+                }
+            }
+        },
+        {
+            name: 'Top 5',
+            type: 'effectScatter',
+            coordinateSystem: 'bmap',
+            data: convertData(data.sort(function (a, b) {
+                return b.value - a.value;
+            }).slice(0, 6)),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'purple',
+                    shadowBlur: 10,
+                    shadowColor: '#333'
+                }
+            },
+            zlevel: 1
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+}
+//圆形图左
+function yx_left(){
+	 var dataDc = 10;
+                if(dataDc > 100){
+                    dataDc = 100
+                }
+                var myChart = echarts.init(document.getElementById('main'));
+                option = {
+                    series: [{
+                        name:'达成率',
+                        type: 'pie',
+                        radius: ['60%', '75%'],//这里是控制环形内半径和外半径
+                        avoidLabelOverlap: false,
+                        hoverAnimation:false,//此处查了好久属性//控制鼠标放置在环上时候的交互
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'center',
+                                textStyle: {
+                                    fontSize: '20',
+                                    fontWeight: 'bold',
+                                    fontFamily:'Microsoft YaHei'
+                                }
+                            }
+                        },
+                        data: [{
+                            value: dataDc,
+                            name: dataDc+'%'
+                        }, {
+                            value: 100-dataDc,
+                            name: ''
+                        }]
+                    }],
+                    color: ['#8378ea', '#c7c2f6']
+                };
+                myChart.setOption(option);     
+}
+ /*圆形图 右*/
+function yx_right(){
+	          var dataTb = 20
+                if(dataTb < 0){
+                    dataTb = 0
+                }
+                var myChart = echarts.init(document.getElementById('main1'));
+                option1 = {
+                    series: [{
+                        name:'达成率',
+                        type: 'pie',
+                        radius: ['60%', '75%'],//这里是控制环形内半径和外半径
+                        avoidLabelOverlap: false,
+                        hoverAnimation:false,//此处查了好久属性//控制鼠标放置在环上时候的交互
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'center',
+                                textStyle: {
+                                    fontSize: '20',
+                                    fontWeight: 'bold',
+                                    fontFamily:'Microsoft YaHei'
+                                }
+                            }
+                        },
+                        data: [{
+                            value: dataTb,
+                            name:dataTb+'%'
+                        }, {
+                            value: 100-dataTb,
+                            name: ''
+                        }
+                        ]
+                    }],
+                    color: ['#e062ae', '#f1b8da']
+                };
+                myChart.setOption(option1);
+                }
+/*折线图 左*/
+function zxt_ro(){
+            var myChart = echarts.init(document.getElementById('map'));
+            var colors = ['#26c545', '#7ad7e9'];
+            option12 = {
+                color: colors,
+                textStyle:{
+                    fontFamily:'Microsoft YaHei'
+                },
+                tooltip: {
+                    trigger: 'none',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                legend: {
+                    data:['本期', '同期']
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLine: {
+                            onZero: false,
+                            lineStyle: {
+                                color: colors[1],
+                                fontFamily:'Microsoft YaHei'
+                            }
+                        },
+                        data: [111,222,333,444]
+                    },
+                    {
+                        type: 'category',
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLine: {
+                            onZero: false,
+                            lineStyle: {
+                                color: colors[0],
+                                fontFamily:'Microsoft YaHei'
+                            }
+                        },
+//                      data: prd_sdate
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name:'本期',
+                        type:'line',
+                        xAxisIndex: 1,
+                        smooth: true,
+                        data: [111,222,333,111]
+                    },
+                    {
+                        name:'同期',
+                        type:'line',
+                        smooth: true,
+                        data: [222,222,222,222]
+                    }
+                ]
+            };
+            myChart.setOption(option12);
+}
+//区域销售
+function qyxs_ro(){
+	
+        var myChart_l = echarts.init(document.getElementById('wst'));
+        var option22 = {
+//		    title : {
+//		        text: '某站点用户访问来源',
+//		        subtext: '纯属虚构',
+//		        x:'center'
+//		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'left',
+		        data: ['直接访问','邮件营销','视频广告','搜索引擎']
+		    },
+		    series : [
+		        {
+		            name: '访问来源',
+		            type: 'pie',
+		            radius : '55%',
+		            center: ['50%', '60%'],
+		            data:[
+		                {value:335, name:'直接访问'},
+		                {value:310, name:'邮件营销'},
+		                {value:135, name:'视频广告'},
+		                {value:1548, name:'搜索引擎'}
+		            ],
+		            color: ['#67e0e3','#8378ea','#e69d87','#ffdb5c','#37a2da'],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+       myChart_l.setOption(option22);
+}
+       </script>

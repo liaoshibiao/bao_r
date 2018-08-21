@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes">
+		<link rel="stylesheet" href="css/reset.css">
+		<!--<link rel="stylesheet" href="css/css/style.css">-->
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/caxun.css" />
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.picker.all.js" ></script>
+		<script src="js/Adaptation.js"></script>
+
+		<title>跨店零售</title>
+	</head>
+	<style>
+		table,
+		table tr th,
+		table .AA {
+			/*border-left: 1px solid #ccc;*/
+			text-align: center;
+		}
+		.oo{
+			/*border-bottom: 1px solid #ccc;*/
+            border-top: 1px solid #ccc;
+		}
+		table {
+			width: 90%;
+			min-height: 25px;
+			line-height: 25px;
+			text-align: center;
+			border-collapse: collapse;
+			margin: 0 auto;
+			font-size: 0.3rem;
+		}
+		table tr td:nth-child(1){
+			border-left: 1px solid #ccc;
+		}
+		table tr th:nth-child(1){
+			border-left: 1px solid #ccc;
+		}
+		#area_rist tbody tr td:nth-child(1){
+			width: 160px;
+		}
+		#area_rist tbody tr th:nth-child(1){
+			width: 160px;
+		}
+		#area_rist tbody tr{
+			 overflow-y: auto;
+		}
+		#cehua{
+			width:100%;
+			background:white;
+			position: absolute;
+			top: 0;right:0;
+			z-index:999;
+			opacity:1;
+			display: none;
+			
+		}
+		#brand,#store{
+			margin: 11px -30px -11px;
+		}
+		.pinpai {
+		    width: 30.5%;
+		    height: 50px;
+		    float: left;
+		    margin: 1% 0%;
+		    text-align: center;
+		    line-height: 50px;
+		    margin-left: 8px;
+		    background: #f2f3f5;
+		    color: #596278;
+		    font-size: .4rem;
+		}
+		.mypinpai{
+			background: url(images/duigou.png)no-repeat 0px 0px;
+		    background-size: 22%;
+		    background-color:#e5fafa;
+		}
+		.jibie{
+			width:100%;height:30px;font-size:.5rem;padding-left:15px;
+		}
+		.jibieda{
+			width: 100%;
+		}
+		.jibieda-top{
+			width:100%;height:30px;font-size:.5rem;padding-left: 15px;
+		}
+		.mui-table-view-cell.mui-collapse .mui-collapse-content{
+			margin: 11px -30px -11px;
+		}
+		#area_rist tr td{
+			    float: left;
+			    overflow: hidden;
+			    zoom: 1;
+			    width: 85px;
+			    height: 38px;
+		}
+		#area_rist tr th{
+			    float: left;
+			    overflow: hidden;
+			    zoom: 1;
+			    width: 85px;
+		}
+		.cz{
+		width:50%;
+		height: 50px;
+		text-align: center;
+	    line-height: 50px;
+	    font-size: .6rem;
+	    color: #fff;
+	    float: left;
+	    background:#8493af ;
+	}
+	.wc{
+		width:50%;
+		height: 50px;
+		text-align: center;
+	    line-height: 50px;
+	    font-size: .6rem;
+	    color: #fff;
+	    float: left;
+		background:#5f6f8d;
+	}
+	#div1{
+		background-size:100% !important;
+		
+	}
+	.cc td{
+		color: #0ab986 !important;
+	}
+	.dd td{
+		color: #b950db !important;
+	}
+	.ii td{
+		color: #1290e7 !important;
+	}
+	.jj td{
+		color: #ee9e13 !important;
+	}
+	tr td:nth-child(1){
+		color: #596278 !important;
+		background: #fffef7;
+	}
+	.mui-switch-blue.mui-active{
+		border: 2px solid #3fc2ff;
+	    background-color: #3fc2ff;
+	}
+	.mui-switch .mui-switch-handle{
+		width: 24px;
+        height: 24px;
+        top:1px
+	}
+	.index{
+		margin:0 10px
+	}
+	.mui-icon{
+		line-height: 1.6;
+	}
+	.kuang_r .mui-table-view-cell{
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+	.kuang_r{
+		margin-top: 6px;
+	}
+	.lei_rong p{
+		width:50%;
+		float: left;
+		padding: 0px 0 5px 6%;
+	}
+	.biao_ti span{
+		color:#596278;
+		font-size: .4rem;
+	}
+	.biao_ti span:nth-last-child(1){
+		color: #0ab986;
+		margin-left: 40px;
+	}
+	.biao_ti span:nth-last-child(2){
+		margin-left: 5px;
+	}
+	.zhi_b p{
+		background:url(images/ic_warm2.png)no-repeat 0 3px;
+		background-size: 15px;
+	}
+	.zhi_b p:nth-child(1){
+		background:url(images/ic_warm.png)no-repeat 0 3px;
+		background-size: 15px;
+	}
+	.zhi_b p:nth-last-child(2){
+		background:url(images/ic_warm.png)no-repeat 0 3px;
+		background-size: 15px;
+	}
+	.zhi_b a{
+		font-size: .4rem;
+	    text-decoration: underline;
+	    position: relative;
+	    top: 5px;
+	    left: 90px;
+	}
+	</style>
+
+	<body class="index sale">
+		<div id="cehua">
+			 <ul class="mui-table-view"> 
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">店铺品牌</a>
+		            <div class="mui-collapse-content" id="brand">
+	
+		            </div>
+		        </li>
+		    </ul>
+		     <ul class="mui-table-view"> 
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">店铺级别</a>
+		            <div class="mui-collapse-content" id="store">
+	
+		            </div>
+		        </li>
+		    </ul>
+		     <ul class="mui-table-view"> 
+		        <li class="mui-table-view-cell mui-collapse">
+		            <a class="mui-navigate-right" href="#">管辖区域</a>
+		            <div class="mui-collapse-content">
+		            	<div class="jibieda">
+		            		<div class="jibieda-top" style="    font-size: .4rem;">一级</div>
+		            		<div id="managementup">
+		            		</div>
+		            	</div>
+		            	
+		            </div>
+		            <div class="mui-collapse-content">
+		            	<div class="jibieda">
+		            		<div class="jibieda-top"style="    font-size: .4rem;display: none;">二级</div>
+		            		<div id="managementmiddle">
+		            		</div>
+		            	</div>
+		            	
+
+		        </li>
+		    </ul>
+		     <ul style="height: 50px;width: 100%;"></ul>
+		     <div style="position: fixed;bottom: 0px;width: 100%;">
+		     	<div class="cz">
+		     		重置
+		     	</div>
+		     	<div class="wc">
+		     		完成
+		     	</div>
+		     </div>
+		</div>
+		<div class="top">
+			<ul class="f-cb" id="nav">
+				<li data-id="1" class="nav-d">昨日</li>
+				<li data-id="2" class="nav-d">上周</li>
+				<li data-id="3" class="nav-d">本周</li>
+				<li data-id="4" class="nav-d">上月</li>
+				<li data-id="5" class="active nav-d">本月</li>
+				<li data-id="6" class="nav-d">本年至今</li>
+			</ul>
+		</div>
+		<div id="CH"">
+			<div id="div1"style="background:url(images/qian.png)no-repeat;width:13%;height:50px;background-size:100%;position: absolute;z-index: 99999;top: 43px;"></div>
+		</div>
+		<div style="height: 40px;margin-top: 15px;">
+			<div style="height: 40px;line-height: 40px;text-align: right ;background: #efefef;width: 80% ;padding:0 10px;float: left;">
+			  <p style="float: left;"style="font-size: .4rem;">零售额</p>
+			  <p class="mui-icon mui-icon-arrowdown dao_h" style="float: right;"></p>
+			</div>
+			<div style="float: left;height: 40px;line-height: 40px;width: 20%;">
+				<img style="width: 50%;margin-left: 25%;"src="images/ic_descend.png"/> 
+			</div>
+		</div>
+		<div>
+		  <ul class="kuang_r"> 
+	        <li class="mui-table-view-cell mui-collapse li_res">
+	            <a class="mui-navigate-right biao_ti" href="#">
+	             <span>ZSMM01</span>
+	             <span>上海茂名路专门店</span>
+	             <span>646，226</span>
+	            </a>
+	            <div class="mui-collapse-content lei_rong zhi_b" style="padding-left: 1rem;">
+	                <p>同比严重下降</p>
+	                <p>折扣低</p>
+	                <p>环比下降</p>
+	                <p>会员消费低</p>
+	                <p>目标未达成</p>
+	                <a href="http://www.baidu.com">查看详情</a>
+	            </div>
+	        </li>
+          </ul>
+           <ul class="kuang_r"> 
+	        <li class="mui-table-view-cell mui-collapse li_res">
+	            <a class="mui-navigate-right biao_ti" href="#">
+	             <span>ZSMM01</span>
+	             <span>上海茂名路专门店</span>
+	             <span>646，226</span>
+	            </a>
+	            <div class="mui-collapse-content lei_rong zhi_b" style="padding-left: 1rem;">
+	                <p>同比严重下降</p>
+	                <p>折扣低</p>
+	                <p>环比下降</p>
+	                <p>会员消费低</p>
+	                <p>目标未达成</p>
+	                <a href="http://www.baidu.com">查看详情</a>
+	            </div>
+	        </li>
+          </ul>
+           <ul class="kuang_r"> 
+	        <li class="mui-table-view-cell mui-collapse li_res">
+	            <a class="mui-navigate-right biao_ti" href="#">
+	             <span>ZSMM01</span>
+	             <span>上海茂名路专门店</span>
+	             <span>646，226</span>
+	            </a>
+	            <div class="mui-collapse-content lei_rong zhi_b" style="padding-left: 1rem;">
+	                <p>同比严重下降</p>
+	                <p>折扣低</p>
+	                <p>环比下降</p>
+	                <p>会员消费低</p>
+	                <p>目标未达成</p>
+	                <a href="http://www.baidu.com">查看详情</a>
+	            </div>
+	        </li>
+          </ul>
+		</div>
+		
+			<script type="text/javascript" src="js/echarts.mins.js"></script>
+			<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+			<script type="text/javascript" src="js/api.js"></script>
+	</body>
+
+</html>
+<script>
+	//头部导航
+	    var URL = "http://report.offline.qingger.com:8188/bi_yhj/REALLY/bi/report/cross_sal/query";
+	   	var mouth=5;
+	   	var mou=1;
+		var ctrr1=[];
+		var brightnessarray1=[];
+		var atrr1=[];
+	 $("#nav li").bind("click",function aa() {
+		data_id = $(this).attr("data-id");
+						$("#nav li").removeClass('active');
+						$("#nav li[data-id = '" + data_id + "']").addClass('active');
+					let index = $(this).index() + 1;
+					if(index==1){
+					mouth=1;
+						var list = []
+						 	var sum = "";
+					}
+					else if(index==2){ 
+					mouth=2
+					}
+					else if(index==3){ 
+					mouth=3
+					}
+					else if(index==4){ 
+					mouth=4
+					}
+					else if(index==5){ 
+					mouth=5
+					}
+					else if(index==6){ 
+					mouth=6
+					}
+					var params = {
+						"userId": '15975531236',
+						"va_months": mouth,
+						"local_send_flag":mou,
+						"areacode1": brightnessarray1,
+						"org_level_id": atrr1,
+						"org_brd_id": ctrr1
+					};
+		           first(params);
+				})
+	 	 function first(params){
+					console.log("调用first");
+					console.log("调用first参数mouth："+params.va_months+";mou:"+params.local_send_flag);
+					if(brightnessarray1.length==0){
+						console.log("调用first参数brightnessarray1为空");
+						params.areacode1='';
+					}else{
+						var bValue='';
+						for(var i=0;i<brightnessarray1.length;i++){
+							bValue=bValue+brightnessarray1[i]+",";
+						}
+						if(bValue!='')bValue=bValue.substring(0,bValue.length-1);
+						console.log('bValue:'+bValue);
+						params.areacode1=bValue;
+					}
+					if(atrr1.length==0){
+						params.org_level_id='';
+						console.log("调用first参数atrr1为空");
+					}else{
+						var atrr1Value='';
+						for(var i=0;i<atrr1.length;i++){
+							atrr1Value=atrr1Value+atrr1[i]+",";
+						}
+						if(atrr1Value!='')atrr1Value=atrr1Value.substring(0,atrr1Value.length-1);
+						console.log('atrr1Value:'+atrr1Value);
+						params.org_level_id=atrr1Value;
+					}
+					if(ctrr1.length==0){
+						params.org_brd_id='';
+						console.log("调用first参数ctrr1为空");
+					}else{
+						var ctrr1Value='';
+						for(var i=0;i<ctrr1.length;i++){
+							ctrr1Value=ctrr1Value+ctrr1[i]+",";
+						}
+						if(ctrr1Value!='')ctrr1Value=ctrr1Value.substring(0,ctrr1Value.length-1);
+						console.log('ctrr1Value:'+ctrr1Value);
+						params.org_brd_id=ctrr1Value;
+					}
+					console.log("调用first参数brightnessarray1："+brightnessarray1+";atrr1:"+params.org_level_id+";ctrr1:"+params.org_brd_id);
+					 //params.org_brd_id='AD';
+					//params.org_brd_id='AD,NK';
+					$.ajax({ 
+					url: URL,
+					type: 'POST',
+					data:params,
+					dataType: 'json',
+					success: function(obj){
+						
+					}
+						});
+		 }
+	 	  var params = {
+						"userId": '15975531236',
+						"va_months": 5,
+						"local_send_flag": 1,
+						"areacode1": brightnessarray1,
+						"org_level_id": atrr1,
+						"org_brd_id": ctrr1
+					};
+      first(params);
+	 //侧滑
+	 $('#CH').click(function(){
+	$("#cehua").show(500)
+	$("#div1").hide()
+	 })
+	$('.wc').click(function(){//完成 触发2
+		$("#cehua").hide()
+		$("#div1").show()
+		console.log("完成按钮点击");
+	})
+	$('.cz').click(function(){
+			$("#managementmiddle .pinpai").removeClass('mypinpai');
+			$("#managementup .pinpai").removeClass('mypinpai');
+			$("#managementdown .pinpai").removeClass('mypinpai');
+            $("#store .pinpai").removeClass('mypinpai');
+			$("#brand .pinpai").removeClass('mypinpai');
+		})
+	$(".dao_h").click(function(){
+				var picker = new mui.PopPicker();
+picker.setData([{
+    value: "first",
+    text: "第一项"
+}, {
+    value: "second",
+    text: "第一项"
+}, {
+    value: "third",
+    text: "第三项"
+}, {
+    value: "fourth",
+    text: "第四项"
+}, {
+    value: "fifth",
+    text: "第五项"
+}])
+//picker.pickers[0].setSelectedIndex(4, 2000);
+picker.pickers[0].setSelectedIndex(0);
+picker.show(function(SelectedItem) {
+	console.log(SelectedItem);
+})
+	})
+</script>
+<script src="js/guanxiaqu.js"></script>
+<script src="js/dianpupingpai.js"></script>
+<script src="js/dianpujibie.js"></script>
+<script src="js/dpph/dpph.js"></script>
+<script>
+	var div1 = document.querySelector('#div1');
+//限制最大宽高，不让滑块出去
+var maxW = document.body.clientWidth - div1.offsetWidth;
+var maxH =690;
+//手指触摸开始，记录div的初始位置
+div1.addEventListener('touchstart', function(e) {
+	 $(this).css("background","url(images/shen.png)no-repeat")
+ var ev = e || window.event;
+ var touch = ev.targetTouches[0];
+ oL = touch.clientX - div1.offsetLeft;
+ oT = touch.clientY - div1.offsetTop;
+});
+//触摸中的，位置记录
+div1.addEventListener('touchmove', function(e) {
+ var ev = e || window.event;
+ var touch = ev.targetTouches[0];
+ var oLeft = touch.clientX - oL;
+ var oTop = touch.clientY - oT;
+ if(oLeft < 0) {
+ oLeft = 0;
+ } else if(oLeft >= maxW) {
+ oLeft = maxW;
+ }
+ if(oTop < 0) {
+ oTop = 0;
+ } else if(oTop >= maxH) {
+ oTop = maxH;
+ }
+ div1.style.left = oLeft + 'px';
+ div1.style.top = oTop + 'px';
+});
+//触摸结束时的处理
+div1.addEventListener('touchend', function() {
+	$(this).css("background","url(images/qian.png)no-repeat")
+ document.removeEventListener("touchmove", defaultEvent);
+});
+//阻止默认事件
+function defaultEvent(e) {
+ e.preventDefault();
+}
+</script>
+
